@@ -15,7 +15,7 @@
           MEMS App
         </q-toolbar-title>
         <!-- TODO:版本号修改为变量 -->
-        <div>MEMS Beta v1.0</div>
+        <div>MEMS Beta v1.0.1</div>
       </q-toolbar>
     </q-header>
 
