@@ -64,6 +64,12 @@ const linksList = [
     caption: '创建记录',
     icon: 'create',
     path: '/create'
+  },
+  {
+    title: 'IT Check',
+    caption: 'IT履历查询',
+    icon: 'search',
+    path: '/it'
   }
 ]
 

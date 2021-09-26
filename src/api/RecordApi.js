@@ -45,6 +45,15 @@ const fixBeforePatch = (value, initialvalue, id) => {
     }
   })
 }
+const priorityPatch = (value, initialvalue, id) => {
+  api.patch(`/pc-records/${id}`, {
+    priority: value
+  }).then(res => {
+    if (res.status === 204) {
+      Notify.create(successNotify)
+    }
+  })
+}
 const progressPatch = (value, initialvalue, id) => {
   api.patch(`/pc-records/${id}`, {
     progress: value
@@ -64,8 +73,9 @@ const handlerPatch = (value, initialvalue, id) => {
   })
 }
 const checkPatch = (value, initialvalue, id) => {
+  const checkVal = value.toUpperCase()
   api.patch(`/pc-records/${id}`, {
-    check: value
+    check: checkVal
   }).then(res => {
     if (res.status === 204) {
       Notify.create(successNotify)
@@ -75,6 +85,21 @@ const checkPatch = (value, initialvalue, id) => {
 const getNoFixRecords = (value, initialvalue, id) => {
   return (
     api.get('/pc-records?filter[where][progress][eq]=').then(res => res.data)
+  )
+}
+const getNoCheckRecords = (value, initialvalue, id) => {
+  return (
+    api.get('/pc-records?filter[where][check][neq]=OK').then(res => res.data)
+  )
+}
+const getCheckedCount = (value, initialvalue, id) => {
+  return (
+    api.get('/pc-records/count?[where][check][eq]=OK').then(res => res.data)
+  )
+}
+const getAllCount = (value, initialvalue, id) => {
+  return (
+    api.get('/pc-records/count').then(res => res.data)
   )
 }
 
@@ -91,9 +116,13 @@ export {
   distinctionPatch,
   occurAtPatch,
   fixBeforePatch,
+  priorityPatch,
   progressPatch,
   handlerPatch,
   checkPatch,
   getNoFixRecords,
+  getNoCheckRecords,
+  getCheckedCount,
+  getAllCount,
   createNewRecord
 }

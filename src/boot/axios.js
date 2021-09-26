@@ -8,7 +8,7 @@ import { Notify } from 'quasar'
 // good idea to move this instance creation inside of the
 // "export default () => {}" function below (which runs individually
 // for each client)
-const api = axios.create({ baseURL: 'http://192.168.31.208:3000' })
+const api = axios.create({ baseURL: process.env.MEMS_APP_BASE_API })
 
 api.interceptors.response.use(
   response => {

@@ -27,6 +27,17 @@
         <q-input label="担当" style="width:180px " v-model="handler" outlined/>
         <q-input label="进度" style="width:180px " v-model="progress" outlined/>
         <q-input label="确认结果" style="width:180px " v-model="check" outlined/>
+        <div class="q-gutter-sm">
+          <q-badge align="middle" color="primary">优先级*: </q-badge>
+          <q-rating
+            v-model="priority"
+            size="3em"
+            color="red"
+            icon="error_outline"
+            icon-selected="error"
+            max="3"
+          />
+        </div>
         <div style="width: 100%">
           <q-input
             label="问题点 *"
@@ -63,6 +74,7 @@ export default {
     const progress = ref('')
     const check = ref('')
     const content = ref('')
+    const priority = ref(0)
     const form = ref(null)
 
     const $store = useStore()
@@ -71,6 +83,7 @@ export default {
     const onReset = () => {
       pcSelected.value = ''
       fixBefore.value = ''
+      priority.value = 0
       handler.value = ''
       progress.value = ''
       check.value = ''
@@ -87,6 +100,7 @@ export default {
     const onSubmit = () => {
       const data = {
         distinction: pcSelected.value,
+        priority: priority.value,
         content: content.value,
         fixBefore: fixBefore.value,
         occurAt: occurAt.value,
@@ -101,6 +115,7 @@ export default {
       pcSelected,
       pcs,
       fixBefore,
+      priority,
       occurAt,
       handler,
       progress,

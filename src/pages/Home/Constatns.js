@@ -11,7 +11,8 @@ const columns = [
   { name: 'distinction', align: 'center', label: '区分', field: 'distinction', sortable: true, style: 'width: 80px' },
   { name: 'content', align: 'center', label: '问题点', field: 'content' },
   { name: 'occurAt', align: 'center', label: '发生时间', field: 'occurAt', sortable: true, style: 'width: 130px' },
-  { name: 'fixBefore', align: 'center', label: '计划对应时间', field: 'fixBefore', style: 'width: 130px' },
+  { name: 'priority', align: 'center', label: '优先级', field: 'priority', style: 'width: 120px' },
+  { name: 'fixBefore', align: 'center', label: '计划对应', field: 'fixBefore', style: 'width: 130px' },
   { name: 'progress', align: 'center', label: '进度', field: 'progress', sortable: true, style: 'width: 100px' },
   { name: 'handler', align: 'center', label: '担当', field: 'handler', style: 'width: 100px' },
   { name: 'check', align: 'center', label: '确认结果', field: 'check', sortable: true, style: 'width: 100px' }

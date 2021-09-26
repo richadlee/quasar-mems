@@ -7,7 +7,8 @@ const routes = [
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '/', name: 'home', component: () => import('src/pages/Home/Home.vue') },
-      { path: '/create', name: 'create', component: () => import('src/pages/NewRecord/NewRecord.vue') }
+      { path: '/create', name: 'create', component: () => import('src/pages/NewRecord/NewRecord.vue') },
+      { path: '/it', name: 'it', component: () => import('src/pages/IT/IT.vue') }
     ]
   },
 
