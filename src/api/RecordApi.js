@@ -8,6 +8,8 @@ const successNotify = {
 }
 const getAllRecords = () => api.get('/pc-records').then(res => res.data)
 
+const getPriorityRecords = () => api.get('/pc-records?filter[where][check][neq]=OK&filter[order]=priority%20DESC&filter[order]=occurAt%20DESC').then(res => res.data)
+
 const contentPatch = (value, initialvalue, id) => {
   api.patch(`/pc-records/${id}`, {
     content: value
@@ -124,5 +126,6 @@ export {
   getNoCheckRecords,
   getCheckedCount,
   getAllCount,
+  getPriorityRecords,
   createNewRecord
 }

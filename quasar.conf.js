@@ -48,7 +48,7 @@ module.exports = configure(function (ctx) {
     build: {
       vueRouterMode: 'hash', // available values: 'hash', 'history'
       env: {
-        MEMS_APP_BASE_API: 'http://localhost:3000'
+        MEMS_APP_BASE_API: ctx.dev ? 'http://localhost:3000' : 'http://10.95.20.35:3000'
       },
       // transpile: false,
 

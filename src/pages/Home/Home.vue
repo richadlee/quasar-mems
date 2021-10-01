@@ -139,6 +139,12 @@ export default {
       count.value = checkedCount.count + '/' + allCount.count
     }
 
+    const getPriorityLists = async () => {
+      rows.value = await recordApi.getPriorityRecords()
+      const checkedCount = await recordApi.getCheckedCount()
+      const allCount = await recordApi.getAllCount()
+      count.value = checkedCount.count + '/' + allCount.count
+    }
     const getNoFixs = async () => {
       rows.value = await recordApi.getNoFixRecords()
       console.log(rows.value)
@@ -147,7 +153,7 @@ export default {
       rows.value = await recordApi.getNoCheckRecords()
       console.log(rows.value)
     }
-    onMounted(getRecordLists)
+    onMounted(getPriorityLists)
     return {
       initialPagination,
       columns,
