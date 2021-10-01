@@ -1,6 +1,6 @@
 <template>
   <div class="q-gutter-md">
-    <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-xm">
+    <q-form @submit="onSubmit(type, gouki)" @reset="onReset" class="q-gutter-xm">
       <q-input
         outlined
         label="TYPE"
@@ -8,6 +8,7 @@
         maxlength="4"
         :rules="[ val => val && val.length === 4 || '请输入正确的型号']"
         style="width: 400px"
+        lazy-rules
       />
       <q-input
         outlined
@@ -17,13 +18,13 @@
         :rules="[ val => val && val.length === 6 || '请输入正确的号机']"
         style="width: 400px"
         clearable
+        lazy-rules
       />
       <div>
         <q-btn label="Search" type="submit" color="primary"/>
         <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm"/>
       </div>
     </q-form>
-
     <q-separator dark />
 
     <q-table
@@ -74,8 +75,8 @@ export default {
       type,
       gouki,
       initialPagination,
-      onRest,
       onSubmit,
+      onRest,
       rows,
       columns
     }
